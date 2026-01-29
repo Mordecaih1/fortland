@@ -79,6 +79,20 @@
         
         .card { background: var(--white); padding: 30px; border-radius: 12px; border-top: 5px solid var(--orange); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
 
+        /* --- Estates Section --- */
+        .estate-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+        @media (min-width: 768px) { .estate-grid { grid-template-columns: 1fr 1fr; } }
+        .estate-card { background: var(--white); border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .estate-img { height: 250px; background-size: cover; background-position: center; }
+        .estate-info { padding: 25px; }
+
+        /* --- Pricing Cards --- */
+        .price-cards { display: grid; gap: 15px; }
+        .price-card { background: var(--white); padding: 20px; border-radius: 10px; border-left: 5px solid var(--orange); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .price-card h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: 5px; }
+        .price-card .amt { font-size: 1.5rem; font-weight: 800; color: var(--dark); }
+        .price-card p { font-size: 0.9rem; color: var(--gray); }
+
         /* --- Sliders --- */
         .slider-wrapper { position: relative; width: 100%; overflow: hidden; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
         .slides-container { display: flex; transition: transform 0.6s ease-in-out; }
@@ -162,36 +176,38 @@
 
     <!-- ABOUT US SECTION -->
     <section id="about" class="section-padding container">
-        <div style="text-align: center; margin-bottom: 40px;">
+        <div style="text-align: center; margin-bottom: 20px;">
             <h2>About Fortland Estate</h2>
-        </div>
-        <div id="aboutTruncated">
-            <p>Fortland Estate is a premium real estate development positioned to deliver secure, affordable, and high-value land investment opportunities...</p>
-            <span class="view-more-btn" onclick="toggleReadMore('aboutTruncated', 'aboutFull')">Click to View More</span>
-        </div>
-        <div id="aboutFull" class="view-more-content">
-            <p>Fortland Estate is a premium real estate development positioned to deliver secure, affordable, and high-value land investment opportunities to individuals, families, and investors. Built on the principles of integrity, transparency, and sustainable growth, Fortland Estate is designed to meet the rising demand for well-planned residential and investment properties in fast-developing locations.<br><br>We are committed to creating communities that combine modern infrastructure, legal security, and long-term value appreciation, making Fortland Estate a trusted name in real estate investment.</p>
-            <span class="view-more-btn" onclick="toggleReadMore('aboutTruncated', 'aboutFull')">Show Less</span>
-        </div>
-
-        <div class="grid-3">
-            <div class="card">
-                <h3>Vision</h3>
-                <p>To become a leading real estate brand known for secure land ownership, planned communities, and exceptional return on investment.</p>
+            <!-- Hidden by default implementation -->
+            <div id="aboutTruncated">
+                <p>Fortland Estate is a premium real estate development positioned to deliver secure, affordable, and high-value land investment opportunities...</p>
+                <span class="view-more-btn" onclick="toggleReadMore('aboutTruncated', 'aboutFull')">Read Full About Us</span>
             </div>
-            <div class="card">
-                <h3>Mission</h3>
-                <p>To provide Nigerians and global investors with verified, affordable, and strategically located properties, while delivering excellent customer service.</p>
-            </div>
-            <div class="card">
-                <h3>Core Values</h3>
-                <ul class="prof-list">
-                    <li>Integrity: Honest transactions</li>
-                    <li>Transparency: No hidden costs</li>
-                    <li>Excellence: High standards</li>
-                    <li>Customer Focus: Relationships</li>
-                    <li>Growth: Value creation</li>
-                </ul>
+            
+            <div id="aboutFull" class="view-more-content">
+                <p>Fortland Estate is a premium real estate development positioned to deliver secure, affordable, and high-value land investment opportunities to individuals, families, and investors. Built on the principles of integrity, transparency, and sustainable growth, Fortland Estate is designed to meet the rising demand for well-planned residential and investment properties in fast-developing locations.<br><br>We are committed to creating communities that combine modern infrastructure, legal security, and long-term value appreciation, making Fortland Estate a trusted name in real estate investment.</p>
+                
+                <div class="grid-3" style="text-align: left;">
+                    <div class="card">
+                        <h3>Vision</h3>
+                        <p>To become a leading real estate brand known for secure land ownership, planned communities, and exceptional return on investment.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Mission</h3>
+                        <p>To provide Nigerians and global investors with verified, affordable, and strategically located properties, while delivering excellent customer service.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Core Values</h3>
+                        <ul class="prof-list">
+                            <li>Integrity: Honest transactions</li>
+                            <li>Transparency: No hidden costs</li>
+                            <li>Excellence: High standards</li>
+                            <li>Customer Focus: Relationships</li>
+                            <li>Growth: Value creation</li>
+                        </ul>
+                    </div>
+                </div>
+                <span class="view-more-btn" onclick="toggleReadMore('aboutTruncated', 'aboutFull')">Show Less</span>
             </div>
         </div>
     </section>
@@ -263,7 +279,7 @@
     </section>
 
     <!-- OUR ESTATES -->
-     <section id="estates" class="section-padding" style="background: var(--light-bg);">
+     <section id="estates" class="section-padding">
         <div class="container">
             <div style="text-align: center; margin-bottom: 50px;">
                 <h2>Our Strategic Locations</h2>
@@ -293,14 +309,29 @@
     </section>
 
     <!-- PRICING -->
-        <section id="pricing" class="section-padding container">
+    <section id="pricing" class="section-padding container">
         <div style="text-align: center; margin-bottom: 40px;"><h2>Pricing & Payment Plans</h2></div>
         <div class="split-layout">
             <img src="fortland 3.jpeg" class="attached-img" alt="Pricing Flyer">
             <div class="price-cards">
-                <div class="price-card"><h3>150 SQM</h3><div class="amt">₦1,500,000</div><p>Zuma, Abuja Pre-Sale</p></div>
-                <div class="price-card" style="border-color: var(--navy);"><h3>300 SQM</h3><div class="amt">₦3,000,000</div><p>Zuma, Abuja Pre-Sale</p></div>
-                <div class="price-card"><h3>450 SQM</h3><div class="amt">₦4,500,000</div><p>Zuma, Abuja Pre-Sale</p></div>
+                <div class="price-card">
+                    <h3>150 SQM</h3>
+                    <div class="amt">₦1,500,000</div>
+                    <p>Zuma, Abuja Pre-Sale Promotion</p>
+                </div>
+                <div class="price-card" style="border-left-color: var(--navy);">
+                    <h3>300 SQM</h3>
+                    <div class="amt">₦3,000,000</div>
+                    <p>Zuma, Abuja Pre-Sale Promotion</p>
+                </div>
+                <div class="price-card">
+                    <h3>450 SQM</h3>
+                    <div class="amt">₦4,500,000</div>
+                    <p>Zuma, Abuja Pre-Sale Promotion</p>
+                </div>
+                <div class="price-card" style="background: #fff8f0;">
+                    <p>Flexible payment plans available. Contact us for bulk purchase discounts.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -360,16 +391,21 @@
         let hSlide = 0;
         const hSlides = document.querySelectorAll('.hero-slide');
         setInterval(() => {
-            hSlides[hSlide].classList.remove('active');
-            hSlide = (hSlide + 1) % hSlides.length;
-            hSlides[hSlide].classList.add('active');
+            if(hSlides.length > 0) {
+                hSlides[hSlide].classList.remove('active');
+                hSlide = (hSlide + 1) % hSlides.length;
+                hSlides[hSlide].classList.add('active');
+            }
         }, 5000);
 
         let wIndex = 0;
         function gotoWhy(n) {
             wIndex = n;
-            document.getElementById('whyTrack').style.transform = `translateX(-${n*100}%)`;
-            document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === n));
+            const track = document.getElementById('whyTrack');
+            if(track) {
+                track.style.transform = `translateX(-${n*100}%)`;
+                document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === n));
+            }
         }
         setInterval(() => gotoWhy((wIndex + 1) % 3), 4500);
 

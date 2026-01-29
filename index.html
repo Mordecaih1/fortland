@@ -33,131 +33,75 @@
             position: sticky; top: 0; z-index: 1000;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
-
         nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
         .logo img { height: 55px; width: auto; border: none !important; display: block; }
 
         .nav-links { display: none; gap: 20px; list-style: none; align-items: center; }
-        .nav-links a { 
-            text-decoration: none; color: var(--navy); font-weight: 700; font-size: 13px; 
-            text-transform: uppercase; letter-spacing: 0.5px; position: relative; padding: 5px 0;
-        }
+        .nav-links a { text-decoration: none; color: var(--navy); font-weight: 700; font-size: 13px; text-transform: uppercase; padding: 5px 0; }
         .nav-links a:hover { color: var(--orange); }
         .nav-cta { background: var(--orange); color: white !important; padding: 10px 18px !important; border-radius: 4px; }
-
         .menu-btn { display: block; font-size: 24px; cursor: pointer; color: var(--navy); border: none; background: none; }
 
         /* Mobile Nav */
-        .mobile-nav { 
-            position: fixed; top: 0; right: -100%; width: 80%; height: 100vh; 
-            background: var(--white); z-index: 2000; padding: 40px 20px;
-            transition: 0.4s ease; box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-        }
+        .mobile-nav { position: fixed; top: 0; right: -100%; width: 80%; height: 100vh; background: var(--white); z-index: 2000; padding: 40px 20px; transition: 0.4s ease; box-shadow: -5px 0 15px rgba(0,0,0,0.1); }
         .mobile-nav.active { right: 0; }
         .mobile-nav li { margin-bottom: 25px; list-style: none; }
         .mobile-nav a { text-decoration: none; font-size: 18px; color: var(--navy); font-weight: 700; display: block; }
-        .close-btn { position: absolute; top: 20px; right: 20px; font-size: 30px; cursor: pointer; }
+        @media (min-width: 1024px) { .nav-links { display: flex; } .menu-btn { display: none; } }
 
-        @media (min-width: 1024px) {
-            .nav-links { display: flex; }
-            .menu-btn { display: none; }
-        }
+        /* --- Professional Lists --- */
+        .prof-list { list-style: none; margin-top: 15px; }
+        .prof-list li { position: relative; padding-left: 25px; margin-bottom: 10px; }
+        .prof-list li::before { content: '✓'; position: absolute; left: 0; color: var(--orange); font-weight: 900; }
+
+        /* --- View More Utility --- */
+        .view-more-content { display: none; margin-top: 10px; }
+        .view-more-btn { color: var(--orange); font-weight: 800; cursor: pointer; display: inline-block; margin-top: 10px; text-transform: uppercase; font-size: 13px; border-bottom: 2px solid var(--orange); padding-bottom: 2px; }
 
         /* --- Hero Slider --- */
         .hero-slider { position: relative; height: 60vh; overflow: hidden; background: var(--navy); }
         @media (min-width: 768px) { .hero-slider { height: 75vh; } }
-        .hero-slide { 
-            position: absolute; width: 100%; height: 100%; 
-            background-size: cover; background-position: center;
-            opacity: 0; transition: opacity 1.2s ease-in-out;
-            display: flex; align-items: center; justify-content: center;
-        }
+        .hero-slide { position: absolute; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.2s ease-in-out; display: flex; align-items: center; justify-content: center; }
         .hero-slide.active { opacity: 1; }
-        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 45, 98, 0.65); }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 45, 98, 0.6); }
         .hero-content { position: relative; z-index: 10; text-align: center; color: white; padding: 0 20px; }
-        .hero-content h1 { font-size: 2.2rem; margin-bottom: 15px; line-height: 1.2; }
+        .hero-content h1 { font-size: 2.2rem; line-height: 1.2; }
         @media (min-width: 768px) { .hero-content h1 { font-size: 3.5rem; } }
         .tagline { display: block; color: var(--orange); font-weight: 700; font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
 
-        /* --- Our Estates Section --- */
+        /* --- Slider Wrappers --- */
+        .why-slider-wrapper { position: relative; width: 100%; max-width: 800px; margin: 30px auto; overflow: hidden; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .why-slides { display: flex; transition: transform 0.6s ease-in-out; width: 100%; }
+        .why-slide { flex: 0 0 100%; width: 100%; }
+        .why-slide img { width: 100%; height: auto; max-height: 600px; object-fit: contain; display: block; }
+        .dot { width: 8px; height: 8px; background: #ccc; border-radius: 50%; cursor: pointer; transition: 0.3s; }
+        .dot.active { background: var(--navy); transform: scale(1.3); }
+
+        /* --- Section Layouts --- */
+        .split-layout { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; margin-top: 40px; }
+        @media (min-width: 1024px) { .split-layout { grid-template-columns: 1fr 1.2fr; } }
+        .attached-img { width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
         .estate-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-top: 40px; }
         @media (min-width: 768px) { .estate-grid { grid-template-columns: 1fr 1fr; } }
-        .estate-card { background: white; border-radius: 12px; overflow: hidden; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .estate-card { background: white; border-radius: 12px; overflow: hidden; border: 1px solid #eee; }
         .estate-img { height: 220px; background-size: cover; background-position: center; }
-        @media (min-width: 768px) { .estate-img { height: 280px; } }
         .estate-info { padding: 25px; }
 
-        /* --- WHY CHOOSE US (Full Length Slider) --- */
-        .why-section { background: var(--white); }
-        .full-length-slider { 
-            position: relative; 
-            width: 100%; 
-            overflow: hidden; 
-            margin: 40px 0;
-        }
-        .why-slides { 
-            display: flex; 
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
-            width: 100%; 
-        }
-        .why-slide { 
-            flex: 0 0 100%; 
-            width: 100%; 
-            display: flex; 
-            justify-content: center; 
-            padding: 0 10px;
-        }
-        .why-slide img { 
-            width: 100%; 
-            max-width: 1100px; /* Spreads across the section length */
-            height: auto;
-            max-height: 650px; 
-            object-fit: contain; 
-            border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        }
-        
-        .why-text-content { 
-            max-width: 900px; 
-            margin: 30px auto 0; 
-            text-align: center; 
-            color: var(--gray); 
-            font-size: 1.05rem; 
-            line-height: 1.8;
-            padding: 20px;
-        }
-
-        /* --- Pricing Section --- */
-        .pricing-section { background: var(--light-bg); }
-        .pricing-layout { display: flex; flex-direction: column; gap: 30px; }
-        @media (min-width: 1024px) { .pricing-layout { flex-direction: row; align-items: center; } }
-        .pricing-img { width: 100%; max-width: 500px; border-radius: 15px; margin: 0 auto; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .price-card { background: white; padding: 25px; border-radius: 12px; text-align: center; border-bottom: 4px solid var(--orange); margin-bottom: 15px; }
-        .price-card .amt { font-size: 2rem; font-weight: 800; color: var(--navy); }
-
-        /* --- Partner With Us --- */
+        /* --- Partner Theme --- */
         .partner-section-blue { background: linear-gradient(135deg, #001a38 0%, var(--navy) 100%); color: var(--white); }
-        .partner-layout { display: flex; flex-direction: column; gap: 40px; }
-        @media (min-width: 1024px) { .partner-layout { flex-direction: row; align-items: center; } }
-        .partner-image { width: 100%; max-width: 500px; border-radius: 15px; margin: 0 auto; box-shadow: 0 15px 35px rgba(0,0,0,0.3); }
-        .partner-info h2 { color: var(--orange); font-size: 2.5rem; }
-        .partner-list { list-style: none; margin: 20px 0; }
-        .partner-list li { margin-bottom: 12px; padding-left: 25px; position: relative; }
-        .partner-list li::before { content: '✔'; position: absolute; left: 0; color: var(--orange); font-weight: bold; }
+        .partner-section-blue h2 { color: var(--orange); }
+        .partner-list { list-style: none; margin-top: 20px; }
+        .partner-list li { position: relative; padding-left: 25px; margin-bottom: 12px; }
+        .partner-list li::before { content: '•'; position: absolute; left: 0; color: var(--orange); font-size: 1.5rem; line-height: 1; }
 
-        /* --- Security & FAQ --- */
-        .security-box { background: #FFF5F5; border: 2px solid #FF0000; padding: 25px; border-radius: 10px; margin-top: 40px; }
-        .bank-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 15px; }
-        @media (min-width: 640px) { .bank-grid { grid-template-columns: 1fr 1fr; } }
-        .bank-card { background: white; padding: 15px; border-radius: 8px; color: var(--navy); font-weight: 600; }
-
-        .faq-item { border-bottom: 1px solid #eee; padding: 15px 0; }
-        .faq-question { font-weight: 700; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; }
-        .faq-answer { display: none; padding-top: 10px; color: var(--gray); font-size: 0.95rem; }
-
+        /* --- Bank & Footer --- */
+        .security-box { background: #FFF5F5; border: 2px solid #FF0000; padding: 25px; border-radius: 10px; margin-top: 40px; color: var(--dark); }
+        .bank-card { background: white; padding: 15px; border-radius: 8px; color: var(--navy); font-weight: 600; margin-top: 10px; border-left: 4px solid var(--orange); }
         footer { background: #020617; color: #94a3b8; padding: 60px 0 30px; }
-        .dot { width: 10px; height: 10px; background: #ccc; border-radius: 50%; cursor: pointer; transition: 0.3s; }
-        .dot.active { background: var(--navy); transform: scale(1.3); }
+
+        .faq-question { font-weight: 700; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding: 15px 0; }
+        .faq-answer { display: none; padding-top: 10px; color: var(--gray); }
     </style>
 </head>
 <body>
@@ -165,21 +109,20 @@
     <!-- TOP BAR -->
     <div class="top-bar">
         <div class="container">
-            <div>📞 +234 806 930 5386 | IG: @fortland2025</div>
+            <div>Phone: +234 806 930 5386 | IG: @fortland2025</div>
             <div style="font-weight: 700;">RC: <span style="color:var(--orange)">8825300</span></div>
         </div>
     </div>
 
-    <!-- HEADER -->
+    <!-- NAVIGATION -->
     <header>
         <div class="container">
             <nav>
                 <a href="#" class="logo"><img src="fortland.png" alt="Fortland Estate Logo"></a>
                 <ul class="nav-links">
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#estates">Our Estates</a></li>
-                    <li><a href="#why">Why Choose Us</a></li>
-                    <li><a href="#blog">Updates</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#estates">Estates</a></li>
+                    <li><a href="#why">Why Us</a></li>
                     <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#faq">FAQs</a></li>
                     <li><a href="#partner" class="nav-cta">Partner With Us</a></li>
@@ -191,12 +134,11 @@
 
     <!-- MOBILE MENU -->
     <div class="mobile-nav" id="mobileNav">
-        <span class="close-btn" onclick="toggleMenu()">×</span>
+        <span style="position: absolute; top: 20px; right: 20px; font-size: 30px; cursor: pointer;" onclick="toggleMenu()">×</span>
         <ul>
-            <li><a href="#about" onclick="toggleMenu()">About Us</a></li>
-            <li><a href="#estates" onclick="toggleMenu()">Our Estates</a></li>
+            <li><a href="#about" onclick="toggleMenu()">About</a></li>
+            <li><a href="#estates" onclick="toggleMenu()">Estates</a></li>
             <li><a href="#why" onclick="toggleMenu()">Why Choose Us</a></li>
-            <li><a href="#blog" onclick="toggleMenu()">Blog/Updates</a></li>
             <li><a href="#pricing" onclick="toggleMenu()">Pricing</a></li>
             <li><a href="#faq" onclick="toggleMenu()">FAQs</a></li>
             <li><a href="#partner" onclick="toggleMenu()" class="nav-cta" style="display:inline-block; color:white;">Partner With Us</a></li>
@@ -221,16 +163,72 @@
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="section-padding container">
-        <div style="display: grid; grid-template-columns: 1fr; gap: 40px; text-align: center;">
-            <div>
-                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">About Fortland Estate</h2>
-                <p style="color: var(--gray); max-width: 900px; margin: 0 auto;">Fortland Estate is a premium real estate development positioned to deliver secure, affordable, and high-value land investment opportunities to individuals, families, and investors.</p>
+    <!-- WHY CHOOSE US -->
+    <section id="why" class="section-padding container">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h2>WHY CHOOSE US?</h2>
+            <p>Built on timeless values, heavy on client satisfaction.</p>
+        </div>
+
+        <div class="why-slider-wrapper">
+            <div class="why-slides" id="whyTrack">
+                <div class="why-slide"><img src="fortland 1.jpeg"></div>
+                <div class="why-slide"><img src="fortland 2.jpeg"></div>
+                <div class="why-slide"><img src="fortland 4.jpeg"></div>
             </div>
-            <div style="background: var(--navy); color: white; padding: 40px; border-radius: 15px;">
-                <h3 style="color:var(--orange); margin-bottom:15px;">Our Mission</h3>
-                <p>To provide Nigerians and global investors with verified, affordable, and strategically located properties, while delivering excellent customer service and ensuring sustainable estate development.</p>
+        </div>
+        <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 30px;">
+            <div class="dot active" onclick="gotoWhy(0)"></div>
+            <div class="dot" onclick="gotoWhy(1)"></div>
+            <div class="dot" onclick="gotoWhy(2)"></div>
+        </div>
+
+        <div id="whyTruncated">
+            <p>At fortland estate we are heavy on client satisfaction, built on timeless values...</p>
+            <span class="view-more-btn" onclick="toggleReadMore('whyTruncated', 'whyFull')">Click to View More</span>
+        </div>
+        <div id="whyFull" class="view-more-content">
+            <p>At fortland estate we are heavy on client satisfaction, built on timeless values.<br><br>
+            <strong>WHAT WE OFFER YOU:</strong>
+            <ul class="prof-list">
+                <li>Prime locations and luxury lifestyle</li>
+                <li>High returns on investment</li>
+                <li>Periodic price appreciation</li>
+                <li>Buy and build opportunities</li>
+                <li>Resale options (we can handle it for you)</li>
+                <li>No hidden charges</li>
+                <li>Free and seamless registration/documentation</li>
+                <li>Flexible payment plans tailored to you</li>
+                <li>Deed of Assignment upon full payment</li>
+                <li>Verified and authentic land documents</li>
+            </ul>
+            <br>
+            The best time to invest was yesterday... the next best time is NOW!<br>
+            <strong>INVEST WITH FORTLAND ESTATE TODAY!</strong></p>
+            <span class="view-more-btn" onclick="toggleReadMore('whyTruncated', 'whyFull')">Show Less</span>
+        </div>
+
+        <!-- SUB SECTION: WHY YOU SHOULD INVEST -->
+        <div class="split-layout" style="margin-top: 80px; border-top: 1px solid #eee; padding-top: 60px;">
+            <img src="fortland 6.jpeg" class="attached-img" alt="Investment Options">
+            <div>
+                <h3>Why You Should Invest in Fortland Estate</h3>
+                <div id="investTruncated">
+                    <p>1. Buy for Long-Term Purposes – Secure your future with a lasting asset...</p>
+                    <span class="view-more-btn" onclick="toggleReadMore('investTruncated', 'investFull')">Click to View More</span>
+                </div>
+                <div id="investFull" class="view-more-content">
+                    <ul class="prof-list">
+                        <li><strong>Buy for Long-Term Purposes</strong> – Secure your future with a lasting asset.</li>
+                        <li><strong>Buy for Land Banking</strong> – Watch your land appreciate in value over time.</li>
+                        <li><strong>Buy as a Gift</strong> – Perfect for birthdays, your spouse, children, or a surprise.</li>
+                        <li><strong>Buy as a Corporate Body</strong> – Expand your company’s assets through strategic land ownership.</li>
+                        <li><strong>Buy as a Group</strong> – Team up with friends, family, or colleagues to co-own property.</li>
+                        <li><strong>Buy to Build</strong> – Develop for rental income, resale, or short-let opportunities.</li>
+                        <li><strong>Invest in Projects</strong> – Partner with us through joint ventures for shared growth.</li>
+                    </ul>
+                    <span class="view-more-btn" onclick="toggleReadMore('investTruncated', 'investFull')">Show Less</span>
+                </div>
             </div>
         </div>
     </section>
@@ -238,13 +236,10 @@
     <!-- OUR ESTATES -->
     <section id="estates" class="section-padding" style="background: var(--light-bg);">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 50px;">
-                <h2>Our Strategic Locations</h2>
-                <p>Invest where the growth is guaranteed.</p>
-            </div>
+            <div style="text-align: center; margin-bottom: 40px;"><h2>Our Strategic Locations</h2></div>
             <div class="estate-grid">
                 <div class="estate-card">
-                    <div class="estate-img" style="background-image: url('Zuma.jpeg');"></div>
+                    <div class="estate-img" style="background-image: url('zuma.jpeg');"></div>
                     <div class="estate-info">
                         <span style="color:var(--orange); font-weight:800; font-size: 0.8rem;">ABUJA</span>
                         <h3>Zuma Estate</h3>
@@ -256,60 +251,22 @@
                     <div class="estate-info">
                         <span style="color:var(--orange); font-weight:800; font-size: 0.8rem;">FCT NORTH</span>
                         <h3>Bwari & Katampe</h3>
-                        <p>High-appreciation development corridors with perimeter fencing completed and modern infrastructure planned.</p>
+                        <p>High-appreciation development corridors with perimeter fencing completed.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WHY CHOOSE US (Full Length Slider Spreading Across) -->
-    <section id="why" class="section-padding why-section">
-        <div class="container" style="text-align: center;">
-            <h2>Why Choose Fortland Estate?</h2>
-        </div>
-        
-        <div class="full-length-slider">
-            <div class="why-slides" id="whyTrack">
-                <div class="why-slide"><img src="fortland 1.jpeg" alt="Reliability"></div>
-                <div class="why-slide"><img src="fortland 2.jpeg" alt="Transparency"></div>
-                <div class="why-slide"><img src="fortland 6.jpeg" alt="Security"></div>
-                 <div class="why-slide"><img src="fortland 4.jpeg" alt="Security"></div>
-            </div>
-        </div>
-        
-        <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 30px;">
-            <div class="dot active" onclick="gotoWhy(0)"></div>
-            <div class="dot" onclick="gotoWhy(1)"></div>
-            <div class="dot" onclick="gotoWhy(2)"></div>
-        </div>
-
-        <div class="why-text-content">
-            <p>Fortland Estate provides secure, strategically located land investment opportunities designed for long-term value growth, combining verified documentation, transparent pricing, flexible payment plans, and planned infrastructure to give individuals, families, and investors confidence, stability, and strong appreciation potential in fast-developing areas.</p>
-        
-        </div>
-    </section>
-
     <!-- PRICING SECTION -->
-    <section id="pricing" class="section-padding pricing-section">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 40px;"><h2>Pricing & Payment Plans</h2></div>
-            <div class="pricing-layout">
-                <img src="fortland 3.jpeg" class="pricing-img" alt="Pricing Guide">
-                <div class="price-cards" style="flex-grow: 1;">
-                    <div class="price-card"><h3>150 SQM</h3><div class="amt">₦1,500,000</div><p>Zuma, Abuja - Pre-sale Rates</p></div>
-                    <div class="price-card" style="border-color: var(--navy);"><h3>300 SQM</h3><div class="amt">₦3,000,000</div><p>Zuma, Abuja - Pre-sale Rates</p></div>
-                    <div class="price-card"><h3>450 SQM</h3><div class="amt">₦4,500,000</div><p>Zuma, Abuja - Pre-sale Rates</p></div>
-                </div>
-            </div>
-            
-            <div class="security-box">
-                <h3 style="color:#D00000; margin-bottom: 10px;">⚠️ Anti-Fraud Banking Notice</h3>
-                <p><strong>DON'T PAY TO ANY INDIVIDUAL.</strong> Transfers to <strong>FORTLAND LIMITED</strong> only:</p>
-                <div class="bank-grid">
-                    <div class="bank-card">ZENITH BANK: 1310854066</div>
-                    <div class="bank-card">FCMB: 2007352941</div>
-                </div>
+    <section id="pricing" class="section-padding container">
+        <div style="text-align: center; margin-bottom: 40px;"><h2>Pricing & Payment Plans</h2></div>
+        <div class="split-layout">
+            <img src="fortland 3.jpeg" class="attached-img" alt="Pricing Brochure">
+            <div>
+                <div class="price-card"><h3>150 SQM</h3><div class="amt">₦1,500,000</div><p>Zuma, Abuja - Pre-sale Rates</p></div>
+                <div class="price-card" style="border-color: var(--navy);"><h3>300 SQM</h3><div class="amt">₦3,000,000</div><p>Zuma, Abuja - Pre-sale Rates</p></div>
+                <div class="price-card"><h3>450 SQM</h3><div class="amt">₦4,500,000</div><p>Zuma, Abuja - Pre-sale Rates</p></div>
             </div>
         </div>
     </section>
@@ -317,53 +274,60 @@
     <!-- PARTNER WITH US -->
     <section id="partner" class="section-padding partner-section-blue">
         <div class="container">
-            <div class="partner-layout">
-                <img src="fortland 5.jpeg" class="partner-image" alt="Partnership">
-                <div class="partner-info">
-                    <h2>Partner With Us</h2>
-                    <p>Join a trusted brand and build wealth. Your growth is our success!</p>
-                    <ul class="partner-list">
-                        <li><strong>10% Commission</strong> on every sale confirmed.</li>
-                        <li><strong>Incentive Rewards</strong> up to N300,000 monthly target bonuses.</li>
-                        <li><strong>Training Academy</strong> weekly sessions to sharpen your skills.</li>
-                        <li><strong>Professional Support</strong> handled by our legal and admin team.</li>
-                    </ul>
+            <div class="split-layout">
+                <img src="fortland 5.jpeg" class="attached-img" alt="Partnership Brochure">
+                <div>
+                    <h2>WHY WORK WITH FORTLAND ESTATE?</h2>
+                    <div id="partnerTruncated">
+                        <p>1. Earn Big – Enjoy 10% commission on every sale you make. 2. Instant Payment...</p>
+                        <span class="view-more-btn" onclick="toggleReadMore('partnerTruncated', 'partnerFull')" style="color:white; border-color:white;">Click to View More</span>
+                    </div>
+                    <div id="partnerFull" class="view-more-content">
+                        <ul class="partner-list">
+                            <li><strong>Earn Big</strong> – Enjoy 10% commission on every sale you make.</li>
+                            <li><strong>Instant Payment</strong> – Your commission is paid immediately after confirmation.</li>
+                            <li><strong>Monthly Salary Rewards</strong> – Earn additional rewards for hitting targets:<br>
+                                • ₦100,000 for ₦3M sales<br>
+                                • ₦200,000 for ₦5M sales<br>
+                                • ₦300,000 for ₦7M sales
+                            </li>
+                            <li><strong>Free Weekly Trainings</strong> – Access fully paid online weekend sessions to succeed in real estate.</li>
+                            <li><strong>Client Support</strong> – We handle satisfaction and stress-free documentation for you.</li>
+                            <li><strong>Be Your Own Boss</strong> – Set your own pace and decide your take-home income.</li>
+                        </ul>
+                        <br><strong>At Fortland Estate, your growth is our success!</strong><br>
+                        <span class="view-more-btn" onclick="toggleReadMore('partnerTruncated', 'partnerFull')" style="color:white; border-color:white;">Show Less</span>
+                    </div>
                     <a href="mailto:fortlandestate25@gmail.com" class="nav-cta" style="display:inline-block; text-decoration:none; margin-top:20px;">Apply to Partner</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <img src="fortland.png" style="height:45px; filter:brightness(50) invert(5); margin-bottom:15px;">
-                    <p>Building Communities. Creating Value. Securing Futures.</p>
-                </div>
-                <div>
-                    <h4 style="color:white; margin-bottom:15px;">Connect</h4>
-                    <p>📍 Abuja, Nigeria</p>
-                    <p>📞 +234 806 930 5386</p>
-                    <p>✉️ fortlandestate25@gmail.com</p>
-                </div>
-                <div>
-                    <h4 style="color:white; margin-bottom:15px;">Socials</h4>
-                    <p>IG: @fortland2025</p>
-                    <p>RC: 8825300</p>
-                </div>
-            </div>
-            <div style="text-align:center; border-top:1px solid #111; margin-top:30px; padding-top:20px; font-size:12px;">
-                &copy; 2025 Fortland Estate. Timeless Values.
-            </div>
+    <!-- FAQ & FOOTER -->
+    <section id="faq" class="section-padding container">
+        <div style="text-align: center; margin-bottom: 40px;"><h2>FAQs</h2></div>
+        <div class="faq-question" onclick="toggleFaq(this)">Are titles verified? <span>+</span></div>
+        <div class="faq-answer">Yes, all properties are legally documented with authentic C of O and Deed of Assignment.</div>
+        
+        <div class="security-box">
+            <h3>Banking Notice</h3>
+            <p>Transfers to <strong>FORTLAND LIMITED</strong> official accounts only:</p>
+            <div class="bank-card">ZENITH BANK: 1310854066</div>
+            <div class="bank-card">FCMB: 2007352941</div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="text-align:center;">
+            <img src="fortland.png" style="height:45px; filter:brightness(0) invert(1); margin-bottom:15px;">
+            <p>Building Communities. Creating Value. Securing Futures.</p>
+            <p style="font-size:12px; margin-top:20px;">&copy; 2025 Fortland Estate. Timeless Values. RC: 8825300</p>
         </div>
     </footer>
 
     <script>
-        function toggleMenu() {
-            document.getElementById('mobileNav').classList.toggle('active');
-        }
+        function toggleMenu() { document.getElementById('mobileNav').classList.toggle('active'); }
 
         let hSlide = 0;
         const hSlides = document.querySelectorAll('.hero-slide');
@@ -374,22 +338,30 @@
         }, 5000);
 
         let wIndex = 0;
-        const whyTrack = document.getElementById('whyTrack');
-        const dots = document.querySelectorAll('.dot');
-        
         function gotoWhy(n) {
             wIndex = n;
-            whyTrack.style.transform = `translateX(-${n * 100}%)`;
-            dots.forEach((d, i) => d.classList.toggle('active', i === n));
+            document.getElementById('whyTrack').style.transform = `translateX(-${n*100}%)`;
+            document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === n));
         }
         setInterval(() => gotoWhy((wIndex + 1) % 3), 4500);
+
+        function toggleReadMore(truncId, fullId) {
+            const trunc = document.getElementById(truncId);
+            const full = document.getElementById(fullId);
+            if (full.style.display === "block") {
+                full.style.display = "none";
+                trunc.style.display = "block";
+            } else {
+                full.style.display = "block";
+                trunc.style.display = "none";
+            }
+        }
 
         function toggleFaq(el) {
             const ans = el.nextElementSibling;
             const span = el.querySelector('span');
-            const isOpen = (ans.style.display === "block");
-            ans.style.display = isOpen ? "none" : "block";
-            span.textContent = isOpen ? "+" : "−";
+            ans.style.display = ans.style.display === "block" ? "none" : "block";
+            span.textContent = ans.style.display === "block" ? "−" : "+";
         }
     </script>
 </body>

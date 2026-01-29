@@ -50,7 +50,7 @@
         .nav-links a:hover::after { width: 100%; }
         .nav-cta { background: var(--orange); color: white !important; padding: 10px 18px !important; border-radius: 4px; }
 
-        /* --- Hero Slider (Houses & Lands) --- */
+        /* --- Hero Slider --- */
         .hero-slider { position: relative; height: 75vh; overflow: hidden; background: var(--navy); }
         .hero-slide { 
             position: absolute; width: 100%; height: 100%; 
@@ -64,13 +64,20 @@
         .hero-content h1 { font-size: 3.5rem; margin-bottom: 15px; line-height: 1.2; }
         .tagline { display: block; color: var(--orange); font-weight: 700; font-size: 1.1rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
 
+        /* --- Estates Section --- */
+        .estate-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 40px; }
+        .estate-card { background: white; border-radius: 12px; overflow: hidden; border: 1px solid #eee; transition: 0.3s; }
+        .estate-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .estate-img { height: 260px; background-size: cover; background-position: center; }
+        .estate-info { padding: 25px; }
+
         /* --- Why Choose Us (Slider with Flyers) --- */
         .why-slider-container { position: relative; max-width: 500px; margin: 40px auto; overflow: hidden; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         .why-slides { display: flex; transition: transform 0.6s ease-in-out; }
         .why-slide { min-width: 100%; }
         .why-slide img { width: 100%; display: block; }
 
-        /* --- Partner With Us (Blue Theme) --- */
+        /* --- Partner With Us (Blue Theme + Attached Image) --- */
         .partner-section-blue { background: linear-gradient(135deg, #001f44 0%, var(--navy) 100%); color: var(--white); }
         .partner-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 50px; align-items: center; }
         .partner-image { width: 100%; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
@@ -85,11 +92,6 @@
         .pricing-img { width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         .price-card { background: white; padding: 30px; border-radius: 12px; text-align: center; border-bottom: 5px solid var(--orange); margin-bottom: 20px; }
         .price-card .amt { font-size: 2rem; font-weight: 800; color: var(--navy); }
-
-        /* --- Blog --- */
-        .blog-card { border-radius: 15px; background: var(--white); overflow: hidden; border: 1px solid #eee; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .blog-content { padding: 25px; }
-        .blog-tag { background: var(--orange); color: white; padding: 4px 12px; font-size: 11px; font-weight: 700; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
 
         /* --- Security & FAQ --- */
         .security-box { background: #FFF5F5; border: 2px solid #FF0000; padding: 35px; border-radius: 12px; margin-top: 50px; }
@@ -108,7 +110,7 @@
 </head>
 <body>
 
-    <!-- TOP INFO BAR -->
+    <!-- TOP BAR -->
     <div class="top-bar">
         <div class="container">
             <div>📞 +234 806 930 5386 | IG: @fortland2025</div>
@@ -116,7 +118,7 @@
         </div>
     </div>
 
-    <!-- HEADER -->
+    <!-- NAVIGATION -->
     <header>
         <div class="container">
             <nav>
@@ -146,7 +148,7 @@
         <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1920&q=80');">
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <span class="tagline">Integrity. Transparency. Growth.</span>
+                <span class="tagline">Verified Land Titles & Clean Documentation</span>
                 <h1>Legally Documented Lands <br>Across Growth Corridors</h1>
             </div>
         </div>
@@ -157,9 +159,9 @@
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; align-items: center;">
             <div>
                 <h2>Building Value</h2>
-                <p>Fortland Estate is a premium real estate development positioned to deliver secure, affordable, and high-value land investment opportunities to individuals, families, and investors.</p>
+                <p>Fortland Estate is a premium real estate development positioned to deliver secure, affordable, and high-value land investment opportunities.</p>
                 <br>
-                <p>We combine modern infrastructure with legal security, making Fortland a trusted name in real estate investment across Abuja and Rivers State.</p>
+                <p>Built on the principles of integrity, transparency, and sustainable growth, we meet the rising demand for well-planned properties in Nigeria.</p>
             </div>
             <div style="background: var(--navy); color: white; padding: 40px; border-radius: 20px;">
                 <h3 style="color:var(--orange);">Our Mission</h3>
@@ -168,35 +170,37 @@
         </div>
     </section>
 
-    <!-- OUR ESTATES -->
+    <!-- OUR ESTATES (Updated with Zuma and Katampe images) -->
     <section id="estates" class="section-padding" style="background: var(--light-bg);">
         <div class="container">
             <div style="text-align: center; margin-bottom: 50px;">
                 <h2>Our Strategic Locations</h2>
-                <p>Discover where we are currently developing.</p>
+                <p>Explore our prime development projects.</p>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
-                <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                    <div style="height: 240px; background: url('https://images.unsplash.com/photo-1593949012312-005077224f8d?auto=format&fit=crop&q=80&w=600') center/cover;"></div>
-                    <div style="padding: 25px;">
+            <div class="estate-grid">
+                <!-- Card 1: Zuma -->
+                <div class="estate-card">
+                    <div class="estate-img" style="background-image: url('Zuma.jpeg');"></div>
+                    <div class="estate-info">
                         <span style="color:var(--orange); font-weight:800; font-size: 0.8rem;">ABUJA</span>
                         <h3>Zuma Estate</h3>
-                        <p>Near Veritas University. Prime plots for residential banking and homeowners.</p>
+                        <p>Near Veritas University. Prime plots for residential banking and homeowners in a fast-growing corridor.</p>
                     </div>
                 </div>
-                <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                    <div style="height: 240px; background: url('https://images.unsplash.com/photo-1449156001533-cb39c1a24d00?auto=format&fit=crop&q=80&w=600') center/cover;"></div>
-                    <div style="padding: 25px;">
+                <!-- Card 2: Katampe -->
+                <div class="estate-card">
+                    <div class="estate-img" style="background-image: url('katampe.png');"></div>
+                    <div class="estate-info">
                         <span style="color:var(--orange); font-weight:800; font-size: 0.8rem;">FCT NORTH</span>
                         <h3>Bwari & Katampe</h3>
-                        <p>High-appreciation development corridors with perimeter fencing completed.</p>
+                        <p>High-appreciation development corridors with perimeter fencing completed and modern infrastructure planned.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WHY CHOOSE US (Slider with 1, 2, 6) -->
+    <!-- WHY CHOOSE US (Slider) -->
     <section id="why" class="section-padding container">
         <div style="text-align: center; margin-bottom: 40px;">
             <h2>Why Choose Fortland Estate?</h2>
@@ -221,24 +225,20 @@
             <h2>Blog & Property Updates</h2>
         </div>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-            <div class="blog-card">
-                <div class="blog-content">
-                    <span class="blog-tag">MARKET ALERT</span>
-                    <h3>Zuma Infrastructure Milestone</h3>
-                    <p>Construction on the new access road to Mpape is accelerating, boosting plot values at Zuma by 15% this quarter.</p>
-                </div>
+            <div style="background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #eee;">
+                <span style="background:var(--orange); color:white; padding:4px 12px; font-size:11px; font-weight:700; border-radius:4px; display:inline-block; margin-bottom:10px;">PRICING UPDATE</span>
+                <h3>Zuma Value Appreciation</h3>
+                <p>New infrastructure milestones near Veritas University have triggered a value adjustment. See the new pre-sale rates.</p>
             </div>
-            <div class="blog-card">
-                <div class="blog-content">
-                    <span class="blog-tag">NEW LAUNCH</span>
-                    <h3>Rivers State Phase II</h3>
-                    <p>Now accepting pre-orders for our Port Harcourt expansion. Secure land banking rates starting from early-bird prices.</p>
-                </div>
+            <div style="background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #eee;">
+                <span style="background:var(--orange); color:white; padding:4px 12px; font-size:11px; font-weight:700; border-radius:4px; display:inline-block; margin-bottom:10px;">MARKET NEWS</span>
+                <h3>Land Banking in FCT North</h3>
+                <p>Explore why Katampe and Bwari remain the top choice for investors seeking secured long-term growth in Abuja.</p>
             </div>
         </div>
     </section>
 
-    <!-- PRICING SECTION (With fortland 3.jpeg Attached) -->
+    <!-- PRICING SECTION -->
     <section id="pricing" class="section-padding pricing-section">
         <div class="container">
             <div style="text-align: center; margin-bottom: 50px;">
@@ -250,17 +250,17 @@
                     <div class="price-card">
                         <h3>150 SQM</h3>
                         <div class="amt">₦1,500,000</div>
-                        <p>Zuma, Abuja - Pre-sale Early Bird</p>
+                        <p>Zuma, Abuja - Pre-sale Rates</p>
                     </div>
                     <div class="price-card" style="border-color: var(--navy);">
                         <h3>300 SQM</h3>
                         <div class="amt">₦3,000,000</div>
-                        <p>Zuma, Abuja - Standard Plot</p>
+                        <p>Zuma, Abuja - Pre-sale Rates</p>
                     </div>
                     <div class="price-card">
                         <h3>450 SQM</h3>
                         <div class="amt">₦4,500,000</div>
-                        <p>Zuma, Abuja - Premium Investment</p>
+                        <p>Zuma, Abuja - Pre-sale Rates</p>
                     </div>
                 </div>
             </div>
@@ -275,7 +275,7 @@
         </div>
     </section>
 
-    <!-- PARTNER WITH US (Attached Image Style + Blue Feel) -->
+    <!-- PARTNER WITH US (Blue Feel + Attached Image) -->
     <section id="partner" class="section-padding partner-section-blue">
         <div class="container">
             <div class="partner-layout">
@@ -284,10 +284,10 @@
                     <h2>Partner With Us</h2>
                     <p>Join a trusted real estate brand and build wealth. Your growth is our success!</p>
                     <ul class="partner-list">
-                        <li><strong>10% Commission:</strong> Instant payment on every sale you confirm.</li>
-                        <li><strong>Incentive Rewards:</strong> Earn up to N300,000 extra for hitting monthly sales targets.</li>
-                        <li><strong>Online Academy:</strong> Fully paid weekly training sessions to sharpen your skills.</li>
-                        <li><strong>Client Management:</strong> We handle the documentation and satisfaction for you.</li>
+                        <li><strong>10% Commission:</strong> Instant payment on every sale confirmed.</li>
+                        <li><strong>Performance Rewards:</strong> Earn up to N300,000 extra for hitting monthly targets.</li>
+                        <li><strong>Skills Development:</strong> Fully paid weekly training sessions to sharpen your expertise.</li>
+                        <li><strong>Documentation Support:</strong> We handle all client documentation for you.</li>
                     </ul>
                     <br>
                     <a href="mailto:fortlandestate25@gmail.com" class="nav-cta" style="display:inline-block; text-decoration:none;">Apply to Partner</a>
@@ -306,7 +306,7 @@
             </div>
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">How do I confirm my payment? <span>+</span></div>
-                <div class="faq-answer">Kindly forward your evidence of payment to fortlandestate25@gmail.com for official confirmation and receipt issuance.</div>
+                <div class="faq-answer">Kindly forward your evidence of payment to fortlandestate25@gmail.com for official confirmation and receipt.</div>
             </div>
         </div>
     </section>

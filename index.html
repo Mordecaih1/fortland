@@ -23,7 +23,7 @@
         .section-padding { padding: 60px 0; }
         @media (min-width: 768px) { .section-padding { padding: 90px 0; } }
 
-        /* --- Navigation Panel --- */
+        /* --- Navigation --- */
         .top-bar { background: var(--navy); color: var(--white); padding: 8px 0; font-size: 12px; }
         .top-bar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px; }
         
@@ -84,14 +84,36 @@
         @media (min-width: 768px) { .estate-grid { grid-template-columns: 1fr 1fr; } }
         .estate-card { background: white; border-radius: 12px; overflow: hidden; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .estate-img { height: 220px; background-size: cover; background-position: center; }
-        @media (min-width: 768px) { .estate-img { height: 280px; } }
         .estate-info { padding: 25px; }
 
-        /* --- Why Choose Us (Wider Slider + Text) --- */
-        .why-slider-wrapper { position: relative; width: 90%; margin: 30px 0; overflow: hidden; }
-        .why-slides { display: flex; transition: transform 0.6s ease-in-out; width: 90%; }
-        .why-slide { min-width: 90%; display: flex; justify-content: center; align-items: center; }
-        .why-slide img { width: 90%; max-width: 1000px; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
+        /* --- FIXED: Why Choose Us (Slider Across Section) --- */
+        .why-slider-wrapper { 
+            position: relative; 
+            width: 100%; 
+            max-width: 800px; /* Caps the size on desktop */
+            margin: 40px auto; 
+            overflow: hidden; 
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        .why-slides { 
+            display: flex; 
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
+            width: 100%; 
+        }
+        .why-slide { 
+            flex: 0 0 100%; 
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .why-slide img { 
+            width: 100%; 
+            height: auto;
+            max-height: 600px; /* Prevents vertical stretching */
+            object-fit: contain; /* Ensures flyer isn't cut off */
+            display: block; 
+        }
         
         .why-text-content { max-width: 900px; margin: 40px auto 0; text-align: center; color: var(--gray); font-size: 1.05rem; line-height: 1.8; border-top: 2px solid var(--orange); padding-top: 30px; }
 
@@ -194,11 +216,11 @@
         <div style="display: grid; grid-template-columns: 1fr; gap: 40px; text-align: center;">
             <div>
                 <h2 style="font-size: 2.5rem; margin-bottom: 20px;">About Fortland Estate</h2>
-                <p style="color: var(--gray); max-width: 900px; margin: 0 auto;">Fortland Estate is a premium real estate development positioned to deliver secure, affordable, and high-value land investment opportunities to individuals, families, and investors.</p>
+                <p style="color: var(--gray); max-width: 900px; margin: 0 auto;">Fortland Estate is a premium real estate development positioned to deliver secure, affordable, and high-value land investment opportunities.</p>
             </div>
             <div style="background: var(--navy); color: white; padding: 40px; border-radius: 15px;">
                 <h3 style="color:var(--orange); margin-bottom:15px;">Our Mission</h3>
-                <p>To provide Nigerians and global investors with verified, affordable, and strategically located properties, while delivering excellent customer service and ensuring sustainable estate development.</p>
+                <p>To provide verified, affordable, and strategically located properties, while delivering excellent customer service and ensuring sustainable estate development.</p>
             </div>
         </div>
     </section>
@@ -212,7 +234,7 @@
             </div>
             <div class="estate-grid">
                 <div class="estate-card">
-                    <div class="estate-img" style="background-image: url('Zuma.jpeg');"></div>
+                    <div class="estate-img" style="background-image: url('zuma.jpeg');"></div>
                     <div class="estate-info">
                         <span style="color:var(--orange); font-weight:800; font-size: 0.8rem;">ABUJA</span>
                         <h3>Zuma Estate</h3>
@@ -231,7 +253,7 @@
         </div>
     </section>
 
-    <!-- WHY CHOOSE US (Expanded Slider Across Section) -->
+    <!-- WHY CHOOSE US -->
     <section id="why" class="section-padding container">
         <div style="text-align: center; margin-bottom: 20px;">
             <h2>Why Choose Fortland Estate?</h2>
@@ -242,7 +264,6 @@
                 <div class="why-slide"><img src="fortland 1.jpeg" alt="Excellence"></div>
                 <div class="why-slide"><img src="fortland 2.jpeg" alt="Transparency"></div>
                 <div class="why-slide"><img src="fortland 6.jpeg" alt="Security"></div>
-                <div class="why-slide"><img src="fortland 4.jpeg" alt="Security"></div>
             </div>
         </div>
         
@@ -253,8 +274,10 @@
         </div>
 
         <div class="why-text-content">
-            <p>Fortland Estate provides secure, strategically located land investment opportunities designed for long-term value growth, combining verified documentation, transparent pricing, flexible payment plans, and planned infrastructure to give individuals, families, and investors confidence, stability, and strong appreciation potential in fast-developing areas.</p>
-            </div>
+            <p>Fortland Estate offers more than land—we provide secure, strategically located investment opportunities designed for long-term value growth. Every property comes with verified documentation, transparent pricing, and flexible payment options, giving you confidence at every stage of your investment journey.</p>
+            <br>
+            <p>Whether you're buying for future security, land banking, development, gifting, or partnership opportunities, our estates are positioned in fast-developing areas with strong appreciation potential. We combine planned infrastructure, professional support, and legally secure ownership to ensure your investment remains safe, profitable, and stress-free.</p>
+        </div>
     </section>
 
     <!-- BLOG SECTION -->
